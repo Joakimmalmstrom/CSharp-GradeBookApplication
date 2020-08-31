@@ -16,10 +16,14 @@ namespace GradeBook.GradeBooks
             {
                 throw new InvalidOperationException("Ranked-grading requires a minimum of 5 students to work");
             }
-            else
+
+            if (averageGrade >= 80)
             {
-                return 'F';
+                return 'A';
             }
+
+            return 'F';
+
         }
     }
 }
