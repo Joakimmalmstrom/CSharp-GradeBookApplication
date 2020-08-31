@@ -41,17 +41,22 @@ namespace GradeBook.UserInterfaces
             }
             var name = parts[1];
             var type = parts[2];
-            var weighted = parts[3];
+
+            var weighted = false;
+            if (parts[3] == "true")
+            {
+                weighted = true;
+            }
 
             BaseGradeBook gradeBook;
 
             if (type == "standard")
             {
-                //gradeBook = new StandardGradeBook(name, weighted);
+                gradeBook = new StandardGradeBook(name, weighted);
             }
             else if (type == "ranked")
             {
-                //gradeBook = new RankedGradeBook(name, weighted);
+                gradeBook = new RankedGradeBook(name, weighted);
             }
             else
             {
@@ -59,7 +64,7 @@ namespace GradeBook.UserInterfaces
                 return;
             }
             Console.WriteLine("Created gradebook {0}.", name);
-            //GradeBookUserInterface.CommandLoop(gradeBook);
+            GradeBookUserInterface.CommandLoop(gradeBook);
         }
 
         public static void LoadCommand(string command)
