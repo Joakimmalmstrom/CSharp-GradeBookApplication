@@ -47,11 +47,11 @@ namespace GradeBook.UserInterfaces
 
             if (type == "standard")
             {
-                gradeBook = new StandardGradeBook(name, weighted);
+                //gradeBook = new StandardGradeBook(name, weighted);
             }
             else if (type == "ranked")
             {
-                gradeBook = new RankedGradeBook(name, weighted);
+                //gradeBook = new RankedGradeBook(name, weighted);
             }
             else
             {
