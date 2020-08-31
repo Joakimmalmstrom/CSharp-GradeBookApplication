@@ -20,6 +20,7 @@ namespace GradeBook.GradeBooks
         {
             Name = name;
             Students = new List<Student>();
+            IsWeighted = isWeighted;
         }
 
         public void AddStudent(Student student)
@@ -111,13 +112,41 @@ namespace GradeBook.GradeBooks
             switch (letterGrade)
             {
                 case 'A':
-                    return 4;
+                    if (IsWeighted && studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)
+                    {
+                        return 5;
+                    }
+                    else
+                    {
+                        return 4;
+                    }
                 case 'B':
-                    return 3;
+                    if (IsWeighted && studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)
+                    {
+                        return 4;
+                    }
+                    else
+                    {
+                        return 3;
+                    }
                 case 'C':
-                    return 2;
+                    if (IsWeighted && studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)
+                    {
+                        return 3;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
                 case 'D':
-                    return 1;
+                    if (IsWeighted && studentType == StudentType.Honors || studentType == StudentType.DualEnrolled)
+                    {
+                        return 2;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
                 case 'F':
                     return 0;
             }
